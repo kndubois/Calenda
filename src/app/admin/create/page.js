@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function CreateEventForm() {
+    
   const [eventName, setEventName] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [location, setLocation] = useState('');
@@ -11,7 +12,7 @@ export default function CreateEventForm() {
   const router = useRouter();
 
   const validateInputs = () => {
-    
+
     const validationErrors = [];
 
     if (eventName.length < 5 || eventName.length > 50) {
@@ -19,6 +20,7 @@ export default function CreateEventForm() {
     }
 
     const dateRegex = /^(0[1-9]|1[0-2])-([0-2][0-9]|3[01])-\d{4}$/;
+
     if (!dateRegex.test(eventDate)) {
         validationErrors.push('Event date must be in MM-DD-YYYY format.');
     } else {
