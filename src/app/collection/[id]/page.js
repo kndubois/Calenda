@@ -41,8 +41,8 @@ export default async function EventDetail({ params }) {
             <td className="border p-2">{event.event_date}</td>
           </tr>
           <tr>
-            <td className="border p-2 font-semibold">Location</td>
-            <td className="border p-2">{event.location}</td>
+            <td className="border p-2 font-semibold">Event Location</td>
+            <td className="border p-2">{event.event_location}</td>
           </tr>
         </tbody>
       </table>

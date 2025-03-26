@@ -7,7 +7,7 @@ export default function CreateEventForm() {
     
   const [eventName, setEventName] = useState('');
   const [eventDate, setEventDate] = useState('');
-  const [location, setLocation] = useState('');
+  const [eventLocation, setEventLocation] = useState('');
   const [errors, setErrors] = useState([]);
   const router = useRouter();
 
@@ -63,7 +63,7 @@ export default function CreateEventForm() {
         id: nextId,
         event_name: eventName,
         event_date: eventDate,
-        location,
+        event_location: eventLocation,
     };
 
     await fetch('http://localhost:4000/events', {
@@ -110,11 +110,11 @@ export default function CreateEventForm() {
             </div>
 
             <div>
-            <label className="block">Location:</label>
+            <label className="block">Event Location:</label>
             <input
                 type="text"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                value={eventLocation}
+                onChange={(e) => setEventLocation(e.target.value)}
                 className="border p-2 w-full"
                 required
             />

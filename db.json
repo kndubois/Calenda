@@ -4,19 +4,19 @@
       "id": "1",
       "event_name": "Annual Conference",
       "event_date": "05-15-2025",
-      "location": "New York"
+      "event_location": "New York"
     },
     {
       "id": "2",
       "event_name": "Networking Gala",
       "event_date": "06-28-2025",
-      "location": "Toronto"
+      "event_location": "Toronto"
     },
     {
       "id": 3,
       "event_name": "Graduation Day!",
       "event_date": "06-17-2025",
-      "location": "Hamilton"
+      "event_location": "Hamilton"
     }
   ]
 }

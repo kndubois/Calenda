@@ -19,8 +19,8 @@ export default async function AdminPage() {
           <tr>
             <th className="border p-2">ID</th>
             <th className="border p-2">Event Name</th>
-            <th className="border p-2">Date</th>
-            <th className="border p-2">Location</th>
+            <th className="border p-2">Event Date</th>
+            <th className="border p-2">Event Location</th>
             
             <th className="border p-2">E</th>
             <th className="border p-2">D</th>
@@ -32,7 +32,7 @@ export default async function AdminPage() {
               <td className="border p-2">{event.id}</td>
               <td className="border p-2">{event.event_name}</td>
               <td className="border p-2">{event.event_date}</td>
-              <td className="border p-2">{event.location}</td>
+              <td className="border p-2">{event.event_location}</td>
 
               <td className="border p-2 text-center">
                 <Link href={`/admin/edit/${event.id}`} className="text-blue-600">

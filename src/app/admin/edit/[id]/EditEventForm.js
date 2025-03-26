@@ -8,7 +8,7 @@ export default function EditEventForm({ event }) {
 
   const [eventName, setEventName] = useState(event.event_name);
   const [eventDate, setEventDate] = useState(event.event_date);
-  const [location, setLocation] = useState(event.location);
+  const [eventLocation, setEventLocation] = useState(event.event_location);
   const [errors, setErrors] = useState([]);
   const router = useRouter();
 
@@ -55,7 +55,7 @@ export default function EditEventForm({ event }) {
         id: event.id,
         event_name: eventName,
         event_date: eventDate,
-        location,
+        event_location: eventLocation,
     };
 
     startTransition(async () => {
@@ -98,11 +98,11 @@ export default function EditEventForm({ event }) {
             </div>
 
             <div>
-                <label className="block">Location:</label>
+                <label className="block">Event Location:</label>
                 <input
                     type="text"
-                    value={location}
-                    onChange={(e) => setLocation(e.target.value)}
+                    value={eventLocation}
+                    onChange={(e) => setEventLocation(e.target.value)}
                     className="border p-2 w-full"
                 />
             </div>
