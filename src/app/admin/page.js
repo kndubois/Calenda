@@ -41,7 +41,12 @@ export default async function AdminPage() {
               </td>
 
               <td className="border p-2 text-center">
-                <form action={deleteEvent}>
+                <form action={deleteEvent} onSubmit={(e) => {
+                  if (!confirm("Are you sure you want to delete this event?"))
+                    e.preventDefault();
+                  }}
+                >
+
                   <input type="hidden" name="id" value={event.id} />
                   <button type="submit" className="text-red-600">D</button>
                 </form>

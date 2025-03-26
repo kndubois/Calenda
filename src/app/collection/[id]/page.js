@@ -14,8 +14,8 @@ export default async function EventDetail({ params }) {
   if (!res.ok) {
     return (
       <div className="p-4">
-        <p>No event found with ID {params.id}.</p>
-        <Link href="/collection">Back</Link>
+        <p className="not-found-message">No event found with ID {params.id}.</p>
+        <a href="/collection" className="button blue">Back to Events</a>
       </div>
     );
   }
