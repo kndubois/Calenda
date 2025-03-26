@@ -120,9 +120,11 @@ export default function CreateEventForm() {
             />
             </div>
 
-            <button type="submit" className="bg-blue-600 text-white px-4 py-2">
-                Submit
-            </button>
+            <div style={{ marginTop: '1rem' }}>
+                <button type="submit" className="button blue">Submit</button>
+                <a href="/admin" className="button dark" style={{ marginLeft: '1rem' }}>Cancel</a>
+            </div>
+
         </form>
     </div>
   );

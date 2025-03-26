@@ -106,10 +106,11 @@ export default function EditEventForm({ event }) {
                     className="border p-2 w-full"
                 />
             </div>
+            <div style={{ marginTop: '1rem' }}>
+                <button type="submit" className="button blue">Update</button>
+                <a href="/admin" className="button dark" style={{ marginLeft: '1rem' }}>Cancel</a>
+            </div>
 
-            <button type="submit" className="bg-blue-600 text-white px-4 py-2">
-                Save Changes
-            </button>
         </form>
     </div>
   );
