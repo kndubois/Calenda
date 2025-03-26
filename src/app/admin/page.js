@@ -21,8 +21,9 @@ export default async function AdminPage() {
             <th className="border p-2">Event Name</th>
             <th className="border p-2">Date</th>
             <th className="border p-2">Location</th>
-            <th className="border p-2">D</th>
+            
             <th className="border p-2">E</th>
+            <th className="border p-2">D</th>
           </tr>
         </thead>
         <tbody>
@@ -32,16 +33,18 @@ export default async function AdminPage() {
               <td className="border p-2">{event.event_name}</td>
               <td className="border p-2">{event.event_date}</td>
               <td className="border p-2">{event.location}</td>
+
+              <td className="border p-2 text-center">
+                <Link href={`/admin/edit/${event.id}`} className="text-blue-600">
+                  E
+                </Link>
+              </td>
+
               <td className="border p-2 text-center">
                 <form action={deleteEvent}>
                   <input type="hidden" name="id" value={event.id} />
                   <button type="submit" className="text-red-600">D</button>
                 </form>
-              </td>
-              <td className="border p-2 text-center">
-                <Link href={`/admin/edit/${event.id}`} className="text-blue-600">
-                  E
-                </Link>
               </td>
             </tr>
           ))}
