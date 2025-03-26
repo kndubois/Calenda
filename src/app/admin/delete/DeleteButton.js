@@ -27,7 +27,7 @@ export default function DeleteButton({ id }) {
       className="text-red-600"
       disabled={deleting}
     >
-      {deleting ? 'Deleting...' : 'Delete Event'}
+      {deleting ? 'Deleting...' : 'D'}
     </button>
   );
 }

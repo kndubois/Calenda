@@ -22,8 +22,8 @@ export default async function AdminPage() {
             <tr>
               <th className="border px-4 py-2 text-center">ID</th>
               <th className="border px-4 py-2 text-left">Event Name</th>
-              <th className="border px-4 py-2 text-left">Date</th>
-              <th className="border px-4 py-2 text-left">Location</th>
+              <th className="border px-4 py-2 text-left">Event Date</th>
+              <th className="border px-4 py-2 text-left">Event Location</th>
               <th className="border px-4 py-2 text-center">Edit</th>
               <th className="border px-4 py-2 text-center">Delete</th>
             </tr>
@@ -40,9 +40,7 @@ export default async function AdminPage() {
                   <Link
                     href={`/admin/edit/${event.id}`}
                     className="text-blue-600 hover:underline"
-                  >
-                    Edit
-                  </Link>
+                  >E</Link>
                 </td>
 
                 <td className="border px-4 py-2 text-center">

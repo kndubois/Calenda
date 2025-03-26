@@ -8,6 +8,10 @@ export default function CreateEventForm() {
   const [eventName, setEventName] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [eventLocation, setEventLocation] = useState('');
+  const [eventDescription, setEventDescription] = useState('');
+  const [eventHost, setEventHost] = useState('');
+  const [eventCapacity, setEventCapacity] = useState('');
+  const [eventRsvpLink, setEventRsvpLink] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState([]);
   const router = useRouter();
@@ -37,6 +41,19 @@ export default function CreateEventForm() {
         validationErrors.push('Location must be between 3 and 30 characters.');
     }
 
+    if (eventLocation.length < 3 || eventLocation.length > 30) {
+        validationErrors.push('Location must be between 3 and 30 characters.');
+    }
+  
+
+    if (eventCapacity && (isNaN(eventCapacity) || eventCapacity <= 0)) {
+        validationErrors.push('Capacity must be a positive number.');
+    }
+
+    if (eventRsvpLink && !/^https?:\/\/.+/.test(eventRsvpLink)) {
+        validationErrors.push('RSVP link must be a valid URL starting with http:// or https://');
+    }
+  
     return validationErrors;
   };
 
@@ -66,6 +83,10 @@ export default function CreateEventForm() {
         event_name: eventName,
         event_date: eventDate,
         event_location: eventLocation,
+        event_description: eventDescription,
+        event_host: eventHost,
+        event_capacity: eventCapacity,
+        event_rsvp_link: rsvpLink,
     };
 
     await fetch('http://localhost:4000/events', {
@@ -79,7 +100,7 @@ export default function CreateEventForm() {
   };
 
   return (
-    <div className="p-4">
+    <div className="max-w-2xl mx-auto bg-white p-8 rounded shadow mt-5 mb-5">
         <h2 className="text-xl font-bold mb-4">Create New Event</h2>
         {errors.length > 0 && (
             <ul className="mb-4 text-red-600 list-disc list-inside">
@@ -90,38 +111,81 @@ export default function CreateEventForm() {
         )}
 
         <form onSubmit={handleSubmit} className="space-y-4">
+
             <div>
-                <label className="block">Event Name:</label>
+                <label className="block font-semibold mb-1">Event Name:</label>
                 <input
                     type="text"
                     value={eventName}
                     onChange={(e) => setEventName(e.target.value)}
-                    className="border p-2 w-full"
+                    className="border border-gray-300 rounded p-2 w-full"
                     required
                 />
             </div>
 
             <div>
-            <label className="block">Event Date (MM-DD-YYYY):</label>
+            <label className="block font-semibold mb-1">Event Date (MM-DD-YYYY):</label>
             <input
                 type="text"
                 value={eventDate}
                 onChange={(e) => setEventDate(e.target.value)}
-                className="border p-2 w-full"
+                className="border border-gray-300 rounded p-2 w-full"
                 required
             />
             </div>
 
             <div>
-            <label className="block">Event Location:</label>
+            <label className="block font-semibold mb-1">Event Location:</label>
             <input
                 type="text"
                 value={eventLocation}
                 onChange={(e) => setEventLocation(e.target.value)}
-                className="border p-2 w-full"
+                className="border border-gray-300 rounded p-2 w-full"
                 required
             />
             </div>
+
+            <div>
+            <label className="block font-semibold mb-1">Event Description</label>
+            <textarea
+                value={eventDescription}
+                onChange={(e) => setEventDescription(e.target.value)}
+                rows="3"
+                className="border border-gray-300 rounded p-2 w-full"
+            ></textarea>
+            </div>
+
+            <div>
+            <label className="block font-semibold mb-1">Event Host</label>
+            <input
+                type="text"
+                value={eventHost}
+                onChange={(e) => setEventHost(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+            />
+            </div>
+
+            <div>
+            <label className="block font-semibold mb-1">Event Capacity</label>
+            <input
+                type="number"
+                min="1"
+                value={eventCapacity}
+                onChange={(e) => setEventCapacity(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+            />
+            </div>
+
+            <div>
+            <label className="block font-semibold mb-1">Event RSVP Link</label>
+            <input
+                type="text"
+                value={eventRsvpLink}
+                onChange={(e) => setEventRsvpLink(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+            />
+            </div>
+
 
             <div style={{ marginTop: '1rem' }}>
                 <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving...' : 'Submit'}</button>

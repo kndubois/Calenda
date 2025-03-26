@@ -43,7 +43,7 @@ export default async function EventDetail({ params }) {
   return (
     <div className="event-detail">
       <div className="mb-4">
-        <Link href="/collection" className="text-blue-600 hover:underline">&larr; Back to Events</Link>
+        <Link href="/collection" className="button blue">&larr; Back to Events</Link>
       </div>
 
       <div className="detail-card">
@@ -67,29 +67,29 @@ export default async function EventDetail({ params }) {
               <td className="label">Location</td>
               <td>{event.event_location}</td>
             </tr>
-            {event.description && (
+            {event.event_description && (
               <tr>
                 <td className="label">Description</td>
-                <td>{event.description}</td>
+                <td>{event.event_description}</td>
               </tr>
             )}
-            {event.host && (
+            {event.event_host && (
               <tr>
                 <td className="label">Host</td>
-                <td>{event.host}</td>
+                <td>{event.event_host}</td>
               </tr>
             )}
-            {event.capacity && (
+            {event.event_capacity && (
               <tr>
                 <td className="label">Capacity</td>
-                <td>{event.capacity}</td>
+                <td>{event.event_capacity}</td>
               </tr>
             )}
-            {event.rsvp_link && (
+            {event.event_rsvp_link && (
               <tr>
                 <td className="label">RSVP</td>
                 <td>
-                  <a href={event.rsvp_link} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                  <a href={event.event_rsvp_link} target="_blank" rel="noopener noreferrer" className="text-blue-600">
                     RSVP Here
                   </a>
                 </td>

@@ -7,10 +7,10 @@ export default function EditEventForm({ event }) {
   const [eventName, setEventName] = useState(event.event_name);
   const [eventDate, setEventDate] = useState(event.event_date);
   const [eventLocation, setEventLocation] = useState(event.event_location);
-  const [description, setDescription] = useState(event.description || '');
-  const [host, setHost] = useState(event.host || '');
-  const [capacity, setCapacity] = useState(event.capacity || '');
-  const [rsvpLink, setRsvpLink] = useState(event.rsvp_link || '');
+  const [eventDescription, setEventDescription] = useState(event.event_description || '');
+  const [eventHost, setEventHost] = useState(event.event_host || '');
+  const [eventCapacity, setEventCapacity] = useState(event.event_capacity || '');
+  const [eventRsvpLink, setEventRsvpLink] = useState(event.event_rsvp_link || '');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState([]);
   const router = useRouter();
@@ -38,11 +38,11 @@ export default function EditEventForm({ event }) {
       validationErrors.push('Location must be between 3 and 30 characters.');
     }
 
-    if (capacity && (isNaN(capacity) || capacity < 1)) {
+    if (eventCapacity && (isNaN(eventCapacity) || eventCapacity < 1)) {
       validationErrors.push('Capacity must be a number greater than 0.');
     }
 
-    if (rsvpLink && !/^https?:\/\/.+/.test(rsvpLink)) {
+    if (eventRsvpLink && !/^https?:\/\/.+/.test(eventRsvpLink)) {
       validationErrors.push('RSVP link must be a valid URL starting with http:// or https://');
     }
 
@@ -65,10 +65,10 @@ export default function EditEventForm({ event }) {
       event_name: eventName,
       event_date: eventDate,
       event_location: eventLocation,
-      description,
-      host,
-      capacity,
-      rsvp_link: rsvpLink,
+      event_description: eventDescription,
+      event_host: eventHost,
+      event_capacity: eventCapacity,
+      event_rsvp_link: eventRsvpLink,
     };
 
     await fetch(`http://localhost:4000/events/${event.id}`, {
@@ -93,77 +93,62 @@ export default function EditEventForm({ event }) {
         </ul>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-6">
+      <form onSubmit={handleSubmit} className="space-y-4">
 
         <div>
-          <label className="block font-semibold mb-1">Event Name</label>
-          <input
-            type="text"
-            value={eventName}
-            onChange={(e) => setEventName(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
-          />
+            <label className="block font-semibold mb-1">Event Name:</label>
+            <input type="text" value={eventName} onChange={(e) => setEventName(e.target.value)} className="border border-gray-300 rounded p-2 w-full" required />
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Event Date (MM-DD-YYYY)</label>
-          <input
-            type="text"
-            value={eventDate}
-            onChange={(e) => setEventDate(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
-          />
+            <label className="block font-semibold mb-1">Event Date (MM-DD-YYYY):</label>
+            <input type="text" value={eventDate} onChange={(e) => setEventDate(e.target.value)} className="border border-gray-300 rounded p-2 w-full" required />
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Event Location</label>
-          <input
-            type="text"
-            value={eventLocation}
-            onChange={(e) => setEventLocation(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
-          />
+            <label className="block font-semibold mb-1">Event Location:</label>
+            <input type="text" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} className="border border-gray-300 rounded p-2 w-full" required />
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Event Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            rows="3"
-            className="border border-gray-300 rounded p-2 w-full"
-          ></textarea>
+            <label className="block font-semibold mb-1">Event Description</label>
+            <textarea
+                value={eventDescription}
+                onChange={(e) => setEventDescription(e.target.value)}
+                rows="3"
+                className="border border-gray-300 rounded p-2 w-full"
+            ></textarea>
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Event Host</label>
-          <input
-            type="text"
-            value={host}
-            onChange={(e) => setHost(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
-          />
+            <label className="block font-semibold mb-1">Event Host</label>
+            <input
+                type="text"
+                value={eventHost}
+                onChange={(e) => setEventHost(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+            />
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Event Capacity</label>
-          <input
-            type="number"
-            min="1"
-            value={capacity}
-            onChange={(e) => setCapacity(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
-          />
+            <label className="block font-semibold mb-1">Event Capacity</label>
+            <input
+                type="number"
+                min="1"
+                value={eventCapacity}
+                onChange={(e) => setEventCapacity(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+            />
         </div>
 
         <div>
-          <label className="block font-semibold mb-1">Event RSVP Link</label>
-          <input
-            type="text"
-            value={rsvpLink}
-            onChange={(e) => setRsvpLink(e.target.value)}
-            className="border border-gray-300 rounded p-2 w-full"
-          />
+            <label className="block font-semibold mb-1">Event RSVP Link</label>
+            <input
+                type="text"
+                value={eventRsvpLink}
+                onChange={(e) => setEventRsvpLink(e.target.value)}
+                className="border border-gray-300 rounded p-2 w-full"
+            />
         </div>
 
         <div className="flex gap-4 mt-6">
