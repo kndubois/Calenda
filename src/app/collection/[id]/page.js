@@ -10,13 +10,16 @@ export async function generateStaticParams() {
 
 function formatDate(dateString) {
   const [month, day, year] = dateString.split("-");
-  const date = new Date(`${year}-${month}-${day}`);
+
+  const date = new Date(Number(year), Number(month) - 1, Number(day));
+
   return date.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
 }
+
 
 export default async function EventDetail({ params }) {
   const res = await fetch(`http://localhost:4000/events/${params.id}`);
