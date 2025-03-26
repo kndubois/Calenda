@@ -1,4 +1,3 @@
-// admin/edit/[id]/editevent.js
 'use client';
 
 import { useState } from 'react';
