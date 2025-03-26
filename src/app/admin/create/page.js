@@ -50,12 +50,17 @@ export default function CreateEventForm() {
     }
 
     const res = await fetch('http://localhost:4000/events');
+
     const existingEvents = await res.json();
-    const nextId = existingEvents.length > 0
-        ? Math.max(...existingEvents.map(e => e.id)) + 1
-        : 1;
+
+    const numericIds = existingEvents
+        .map(e => parseInt(e.id))
+        .filter(id => !isNaN(id));
+
+    const nextId = numericIds.length > 0 ? Math.max(...numericIds) + 1 : 1;
 
     const newEvent = {
+        id: nextId,
         event_name: eventName,
         event_date: eventDate,
         location,
