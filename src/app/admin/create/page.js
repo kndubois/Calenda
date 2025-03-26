@@ -8,6 +8,7 @@ export default function CreateEventForm() {
   const [eventName, setEventName] = useState('');
   const [eventDate, setEventDate] = useState('');
   const [eventLocation, setEventLocation] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState([]);
   const router = useRouter();
 
@@ -49,8 +50,9 @@ export default function CreateEventForm() {
         return;
     }
 
-    const res = await fetch('http://localhost:4000/events');
+    setIsSubmitting(true);
 
+    const res = await fetch('http://localhost:4000/events');
     const existingEvents = await res.json();
 
     const numericIds = existingEvents
@@ -72,6 +74,7 @@ export default function CreateEventForm() {
         body: JSON.stringify(newEvent),
     });
 
+    setIsSubmitting(false);
     router.push('/admin');
   };
 
@@ -121,7 +124,7 @@ export default function CreateEventForm() {
             </div>
 
             <div style={{ marginTop: '1rem' }}>
-                <button type="submit" className="button blue">Submit</button>
+                <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving…' : 'Submit'}</button>
                 <a href="/admin" className="button dark" style={{ marginLeft: '1rem' }}>Cancel</a>
             </div>
 

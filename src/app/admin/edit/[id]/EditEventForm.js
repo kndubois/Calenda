@@ -9,6 +9,7 @@ export default function EditEventForm({ event }) {
   const [eventName, setEventName] = useState(event.event_name);
   const [eventDate, setEventDate] = useState(event.event_date);
   const [eventLocation, setEventLocation] = useState(event.event_location);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState([]);
   const router = useRouter();
 
@@ -39,8 +40,6 @@ export default function EditEventForm({ event }) {
     return validationErrors;
   };
 
-  const [isPending, startTransition] = useTransition();
-
   const handleSubmit = async (e) => {
 
     e.preventDefault();
@@ -51,6 +50,8 @@ export default function EditEventForm({ event }) {
         return;
     }
 
+    setIsSubmitting(true);
+
     const updatedEvent = {
         id: event.id,
         event_name: eventName,
@@ -58,10 +59,14 @@ export default function EditEventForm({ event }) {
         event_location: eventLocation,
     };
 
-    startTransition(async () => {
-        await updateEvent(updatedEvent);
-        router.push('/admin');
+    await fetch(`http://localhost:4000/events/${event.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedEvent),
     });
+
+    setIsSubmitting(false);
+    router.push('/admin');
   };
 
   return (
@@ -107,7 +112,7 @@ export default function EditEventForm({ event }) {
                 />
             </div>
             <div style={{ marginTop: '1rem' }}>
-                <button type="submit" className="button blue">Update</button>
+                <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving…' : 'Save Changes'}</button>
                 <a href="/admin" className="button dark" style={{ marginLeft: '1rem' }}>Cancel</a>
             </div>
 
