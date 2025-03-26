@@ -6,7 +6,7 @@ An application that manages events.
 
 ## Useful Information
 
-## localhost
+### localhost
 
 view: [http://localhost:3000](http://localhost:3000)
 
