@@ -15,7 +15,7 @@
       "event_name": "Networking Gala",
       "event_date": "06-28-2025",
       "event_location": "Toronto",
-      "event_description": "",
+      "event_description": "Paid $50 in advance, show on phone at the entrance",
       "event_host": "The City of Toronto",
       "event_capacity": "300",
       "event_rsvp_link": ""
@@ -29,15 +29,6 @@
       "event_host": "Elena White, VP of Product",
       "event_capacity": "150",
       "event_rsvp_link": "https://example.com/rsvp"
-    },
-    {
-      "id": "4",
-      "event_name": "Graduation Day!",
-      "event_date": "06-17-2025",
-      "event_location": "Hamilton",
-      "event_description": "",
-      "event_host": "",
-      "event_rsvp_link": ""
     }
   ]
 }

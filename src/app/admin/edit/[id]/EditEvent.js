@@ -1,3 +1,4 @@
+// admin/edit/[id]/editevent.js
 'use client';
 
 import { useState } from 'react';
@@ -68,16 +69,14 @@ export default function EditEvent({ event }) {
       event_capacity: eventCapacity,
       event_rsvp_link: eventRsvpLink,
     };
-    
-    await updateEvent(updatedEvent);
-    
-    await fetch(`http://localhost:4000/events/${event.id}`, {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedEvent),
-    });
 
-    router.push('/admin');
+    try {
+      await updateEvent(updatedEvent);
+      router.push('/admin');
+    } catch (error) {
+      console.error('Failed to update event:', error);
+      setErrors(['Failed to save changes. Please try again.']);
+    }
   };
 
   return (
@@ -93,67 +92,82 @@ export default function EditEvent({ event }) {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
-
         <div>
-            <label className="block font-semibold mb-1">Event Name:</label>
-            <input type="text" value={eventName} onChange={(e) => setEventName(e.target.value)} className="border border-gray-300 rounded p-2 w-full" required />
+          <label className="block font-semibold mb-1">Event Name:</label>
+          <input
+            type="text"
+            value={eventName}
+            onChange={(e) => setEventName(e.target.value)}
+            className="border border-gray-300 rounded p-2 w-full"
+            required
+          />
         </div>
 
         <div>
-            <label className="block font-semibold mb-1">Event Date (MM-DD-YYYY):</label>
-            <input type="text" value={eventDate} onChange={(e) => setEventDate(e.target.value)} className="border border-gray-300 rounded p-2 w-full" required />
+          <label className="block font-semibold mb-1">Event Date (MM-DD-YYYY):</label>
+          <input
+            type="text"
+            value={eventDate}
+            onChange={(e) => setEventDate(e.target.value)}
+            className="border border-gray-300 rounded p-2 w-full"
+            required
+          />
         </div>
 
         <div>
-            <label className="block font-semibold mb-1">Event Location:</label>
-            <input type="text" value={eventLocation} onChange={(e) => setEventLocation(e.target.value)} className="border border-gray-300 rounded p-2 w-full" required />
+          <label className="block font-semibold mb-1">Event Location:</label>
+          <input
+            type="text"
+            value={eventLocation}
+            onChange={(e) => setEventLocation(e.target.value)}
+            className="border border-gray-300 rounded p-2 w-full"
+            required
+          />
         </div>
 
         <div>
-            <label className="block font-semibold mb-1">Event Description</label>
-            <textarea
-                value={eventDescription}
-                onChange={(e) => setEventDescription(e.target.value)}
-                rows="3"
-                className="border border-gray-300 rounded p-2 w-full"
-            ></textarea>
+          <label className="block font-semibold mb-1">Event Description</label>
+          <textarea
+            value={eventDescription}
+            onChange={(e) => setEventDescription(e.target.value)}
+            rows="3"
+            className="border border-gray-300 rounded p-2 w-full"
+          />
         </div>
 
         <div>
-            <label className="block font-semibold mb-1">Event Host</label>
-            <input
-                type="text"
-                value={eventHost}
-                onChange={(e) => setEventHost(e.target.value)}
-                className="border border-gray-300 rounded p-2 w-full"
-            />
+          <label className="block font-semibold mb-1">Event Host</label>
+          <input
+            type="text"
+            value={eventHost}
+            onChange={(e) => setEventHost(e.target.value)}
+            className="border border-gray-300 rounded p-2 w-full"
+          />
         </div>
 
         <div>
-            <label className="block font-semibold mb-1">Event Capacity</label>
-            <input
-                type="number"
-                min="1"
-                value={eventCapacity}
-                onChange={(e) => setEventCapacity(e.target.value)}
-                className="border border-gray-300 rounded p-2 w-full"
-            />
+          <label className="block font-semibold mb-1">Event Capacity</label>
+          <input
+            type="number"
+            min="1"
+            value={eventCapacity}
+            onChange={(e) => setEventCapacity(e.target.value)}
+            className="border border-gray-300 rounded p-2 w-full"
+          />
         </div>
 
         <div>
-            <label className="block font-semibold mb-1">Event RSVP Link</label>
-            <input
-                type="text"
-                value={eventRsvpLink}
-                onChange={(e) => setEventRsvpLink(e.target.value)}
-                className="border border-gray-300 rounded p-2 w-full"
-            />
+          <label className="block font-semibold mb-1">Event RSVP Link</label>
+          <input
+            type="text"
+            value={eventRsvpLink}
+            onChange={(e) => setEventRsvpLink(e.target.value)}
+            className="border border-gray-300 rounded p-2 w-full"
+          />
         </div>
 
         <div className="flex gap-4 mt-6">
-          <button type="submit" className="button blue">
-            Save Changes
-          </button>
+          <button type="submit" className="button blue">Save Changes</button>
           <a href="/admin" className="button dark">Cancel</a>
         </div>
       </form>
