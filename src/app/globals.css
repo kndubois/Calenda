@@ -48,6 +48,16 @@ nav {
   margin:0 auto;
 }
 
+nav a {
+  background:transparent;
+  color:#2563eb;
+  font-weight:500;
+}
+
+nav a:hover {
+  color: #1e40af;
+}
+
 main {
   max-width:960px;
   margin:2rem auto;
@@ -58,12 +68,10 @@ main {
 a {
   text-decoration:none;
   color:#2563eb;
-  transition: color 0.2s ease;
+  transition:color 0.2s ease;
 }
 
-a:hover {
-  color: #1e40af;
-}
+a:hover { color:#1e40af; }
 
 .homepage {
   display:flex;
@@ -105,10 +113,14 @@ a:hover {
   color:white;
 }
 
+.button.blue:hover { background-color:#1e40af; }
+
 .button.dark {
   background-color:#1f2937;
   color:white;
 }
+
+.button.dark:hover { background-color:#111827; }
 
 footer {
   border-top:1px solid #e5e7eb;
