@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { deleteEvent } from './actions';
 
 export default async function AdminPage() {
   const res = await fetch("http://localhost:4000/events", {
@@ -12,6 +13,7 @@ export default async function AdminPage() {
       <Link href="/admin/create" className="text-blue-600 underline">
         Create New
       </Link>
+
       <table className="border-collapse border border-gray-400 w-full mt-4">
         <thead>
           <tr>
@@ -31,7 +33,8 @@ export default async function AdminPage() {
               <td className="border p-2">{event.event_date}</td>
               <td className="border p-2">{event.location}</td>
               <td className="border p-2 text-center">
-                <form action={`/admin/delete/${event.id}`} method="post">
+                <form action={deleteEvent}>
+                  <input type="hidden" name="id" value={event.id} />
                   <button type="submit" className="text-red-600">D</button>
                 </form>
               </td>
