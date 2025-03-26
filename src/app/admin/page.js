@@ -24,6 +24,10 @@ export default async function AdminPage() {
               <th className="border px-4 py-2 text-left">Event Name</th>
               <th className="border px-4 py-2 text-left">Event Date</th>
               <th className="border px-4 py-2 text-left">Event Location</th>
+              <th className="border px-4 py-2 text-left">Event Description</th>
+              <th className="border px-4 py-2 text-left">Event Host</th>
+              <th className="border px-4 py-2 text-left">Event Capacity</th>
+              <th className="border px-4 py-2 text-left">Event RSVP Link</th>
               <th className="border px-4 py-2 text-center">Edit</th>
               <th className="border px-4 py-2 text-center">Delete</th>
             </tr>
@@ -35,6 +39,10 @@ export default async function AdminPage() {
                 <td className="border px-4 py-2">{event.event_name}</td>
                 <td className="border px-4 py-2">{event.event_date}</td>
                 <td className="border px-4 py-2">{event.event_location}</td>
+                <td className="border px-4 py-2">{event.event_description}</td>
+                <td className="border px-4 py-2">{event.event_host}</td>
+                <td className="border px-4 py-2">{event.event_capacity}</td>
+                <td className="border px-4 py-2">{event.event_rsvp_link}</td>
 
                 <td className="border px-4 py-2 text-center">
                   <Link

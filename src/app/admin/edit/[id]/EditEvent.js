@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { updateEvent } from './actions';
 
 export default function EditEvent({ event }) {
   const [eventName, setEventName] = useState(event.event_name);
@@ -67,7 +68,9 @@ export default function EditEvent({ event }) {
       event_capacity: eventCapacity,
       event_rsvp_link: eventRsvpLink,
     };
-
+    
+    await updateEvent(updatedEvent);
+    
     await fetch(`http://localhost:4000/events/${event.id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },

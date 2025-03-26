@@ -28,8 +28,8 @@ export default function RootLayout({ children }) {
               <Link href="/" className="text-xl font-bold text-blue-600">Calenda</Link>
               
               <div className="space-x-4">
-                <Link href="/collection" className="hover:underline">Events</Link>
-                <Link href="/admin" className="hover:underline">Admin</Link>
+                <Link href="/collection">Events</Link>
+                <Link href="/admin">Admin</Link>
               </div>
 
             </nav>
