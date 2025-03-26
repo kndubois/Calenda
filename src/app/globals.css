@@ -206,6 +206,12 @@ a:hover { color:#1e40af; }
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
+.event-detail {
+  max-width: 720px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
 .event-card {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -227,6 +233,45 @@ a:hover { color:#1e40af; }
   font-size: 0.9rem;
   color: #4b5563;
   margin-bottom: 0.5rem;
+}
+
+
+
+.detail-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  padding: 2rem;
+}
+
+.detail-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.detail-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-table .label {
+  font-weight: 600;
+  color: #374151;
+  width: 160px;
+  white-space: nowrap;
+}
+
+.bg-red-50 {
+  background-color: #fef2f2;
+}
+
+.border-red-200 {
+  border-color: #fecaca;
+}
+
+.text-red-700 {
+  color: #b91c1c;
 }
 
 
