@@ -23,12 +23,14 @@ export default async function EventDetail({ params }) {
 
   if (!res.ok) {
     return (
-      <div className="p-8 max-w-xl mx-auto text-center bg-red-50 border border-red-200 rounded">
+      <div className="max-w-2xl mx-auto bg-white p-8 rounded shadow mt-5 mb-5 text-center">
         <h2 className="text-xl font-semibold text-red-700 mb-2">
           Event Not Found
         </h2>
         <p className="text-gray-700 mb-4">
-          Sorry, no event with ID <strong>{params.id}</strong> could be found.
+          ID <strong>{params.id}</strong> not found
+          <br></br>
+          <br></br>
           It may have been deleted or the URL may be incorrect.
         </p>
         <a href="/collection" className="button blue">
@@ -64,30 +66,30 @@ export default async function EventDetail({ params }) {
               <td>{formatDate(event.event_date)}</td>
             </tr>
             <tr>
-              <td className="label">Location</td>
+              <td className="label">Event Location</td>
               <td>{event.event_location}</td>
             </tr>
             {event.event_description && (
               <tr>
-                <td className="label">Description</td>
+                <td className="label">Event Description</td>
                 <td>{event.event_description}</td>
               </tr>
             )}
             {event.event_host && (
               <tr>
-                <td className="label">Host</td>
+                <td className="label">Event Host</td>
                 <td>{event.event_host}</td>
               </tr>
             )}
             {event.event_capacity && (
               <tr>
-                <td className="label">Capacity</td>
+                <td className="label">Event Capacity</td>
                 <td>{event.event_capacity}</td>
               </tr>
             )}
             {event.event_rsvp_link && (
               <tr>
-                <td className="label">RSVP</td>
+                <td className="label">Event RSVP</td>
                 <td>
                   <a href={event.event_rsvp_link} target="_blank" rel="noopener noreferrer" className="text-blue-600">
                     RSVP Here

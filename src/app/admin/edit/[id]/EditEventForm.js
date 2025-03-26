@@ -11,7 +11,6 @@ export default function EditEventForm({ event }) {
   const [eventHost, setEventHost] = useState(event.event_host || '');
   const [eventCapacity, setEventCapacity] = useState(event.event_capacity || '');
   const [eventRsvpLink, setEventRsvpLink] = useState(event.event_rsvp_link || '');
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState([]);
   const router = useRouter();
 
@@ -58,8 +57,6 @@ export default function EditEventForm({ event }) {
       return;
     }
 
-    setIsSubmitting(true);
-
     const updatedEvent = {
       id: event.id,
       event_name: eventName,
@@ -77,7 +74,6 @@ export default function EditEventForm({ event }) {
       body: JSON.stringify(updatedEvent),
     });
 
-    setIsSubmitting(false);
     router.push('/admin');
   };
 
@@ -152,8 +148,8 @@ export default function EditEventForm({ event }) {
         </div>
 
         <div className="flex gap-4 mt-6">
-          <button type="submit" className="button blue" disabled={isSubmitting}>
-            {isSubmitting ? 'Saving…' : 'Save Changes'}
+          <button type="submit" className="button blue">
+            Save Changes
           </button>
           <a href="/admin" className="button dark">Cancel</a>
         </div>

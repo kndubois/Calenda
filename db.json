@@ -5,40 +5,39 @@
       "event_name": "50th Annual Conference",
       "event_date": "05-15-2025",
       "event_location": "New York",
-      "description": "",
-      "host": "",
-      "capacity": "",
-      "rsvp_link": "https://example.com/rsvp"
+      "event_description": "",
+      "event_host": "",
+      "event_capacity": "",
+      "event_rsvp_link": "https://example.com/rsvp"
     },
     {
       "id": "2",
       "event_name": "Networking Gala",
       "event_date": "06-28-2025",
       "event_location": "Toronto",
-      "description": "",
-      "host": "",
-      "capacity": "",
-      "rsvp_link": "https://example.com/rsvp"
+      "event_description": "",
+      "event_host": "",
+      "event_capacity": "",
+      "event_rsvp_link": "https://example.com/rsvp"
     },
     {
       "id": "3",
-      "event_name": "Graduation Day!",
-      "event_date": "06-17-2025",
-      "event_location": "Hamilton",
-      "description": "",
-      "host": "",
-      "capacity": "",
-      "rsvp_link": "https://example.com/rsvp"
-    },
-    {
-      "id": "4",
       "event_name": "Product Launch",
       "event_date": "07-10-2025",
       "event_location": "San Francisco",
-      "event_description": "Join us for the unveiling of our newest product line",
+      "event_description": "Join the family for the unveiling of their newest product line",
       "event_host": "Elena White, VP of Product",
       "event_capacity": "150",
       "event_rsvp_link": "https://example.com/rsvp"
+    },
+    {
+      "id": "4",
+      "event_name": "Graduation Day!",
+      "event_date": "06-17-2025",
+      "event_location": "Hamilton",
+      "event_description": "",
+      "event_host": "",
+      "event_rsvp_link": ""
     }
   ]
 }

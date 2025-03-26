@@ -1,15 +1,5 @@
 import Link from "next/link";
 
-function formatDate(dateString) {
-    const [month, day, year] = dateString.split("-");
-    const date = new Date(`${year}-${month}-${day}`);
-    return date.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  }
-
   export default async function Collection() {
     const res = await fetch("http://localhost:4000/events", { cache: "no-store" });
     const events = await res.json();
@@ -24,9 +14,8 @@ function formatDate(dateString) {
           <div className="collection-grid">
             {events.map(event => (
               <div key={event.id} className="event-card">
+                <p className="event-id">#{event.id}</p>
                 <h3 className="event-name">{event.event_name}</h3>
-                <p className="event-meta"><strong>Date:</strong> {formatDate(event.event_date)}</p>
-                <p className="event-meta"><strong>Location:</strong> {event.event_location}</p>
                 <Link href={`/collection/${event.id}`} className="button blue small">More</Link>
               </div>
             ))}
