@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { deleteEvent } from './actions';
 import DeleteButton from './edit/[id]/DeleteButton';
 
 export default async function AdminPage() {

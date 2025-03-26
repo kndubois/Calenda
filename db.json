@@ -11,6 +11,12 @@
       "event_name": "Networking Gala",
       "event_date": "06-28-2025",
       "event_location": "Toronto"
+    },
+    {
+      "id": 3,
+      "event_name": "Graduation Day!",
+      "event_date": "06-17-2025",
+      "event_location": "Hamilton"
     }
   ]
 }
