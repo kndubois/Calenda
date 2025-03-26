@@ -122,6 +122,27 @@ a:hover { color:#1e40af; }
 
 .button.dark:hover { background-color:#111827; }
 
+
+.not-found {
+  text-align: center;
+  padding: 5rem 1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.not-found h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.not-found p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+
 footer {
   border-top:1px solid #e5e7eb;
   font-size:0.9rem;
