@@ -7,13 +7,13 @@ export default async function EditPage({ params }) {
 
   if (!res.ok) {
     return (
-      <div className="p-4">
-        <p className="text-red-600">Event not found.</p>
+      <div className="p-6 text-center text-red-600">
+        <h2 className="text-lg font-semibold mb-2">Event not found</h2>
+        <a href="/admin" className="button blue">Back to Admin</a>
       </div>
     );
   }
 
   const event = await res.json();
-
   return <EditEventForm event={event} />;
 }
