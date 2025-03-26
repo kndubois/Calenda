@@ -1,26 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background:#f9fafb;
+  --foreground:#1f2937;
+  --font-geist-sans:'Geist Variable', sans-serif;
+  --font-geist-mono:'Geist Mono Variable', monospace;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background:var(--background);
+  --color-foreground:var(--foreground);
+  --font-sans:var(--font-geist-sans);
+  --font-mono:var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+/**
+@media (prefers-color-scheme:dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background:#0a0a0a;
+    --foreground:#ededed;
   }
 }
+**/
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:var(--background);
+  color:var(--foreground);
+  font-family:var(--font-geist-sans);
+  margin:0;
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
+}
+
+header, footer {
+  background:#fff;
+  padding:1rem 2rem;
+  border-bottom:1px solid #e5e7eb;
+}
+
+nav {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:960px;
+  margin:0 auto;
+}
+
+main {
+  max-width:960px;
+  margin:2rem auto;
+  padding:1rem;
+  flex:1;
+}
+
+a {
+  text-decoration:none;
+  color:#2563eb;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #1e40af;
+}
+
+.homepage {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:60vh;
+  text-align:center;
+}
+
+.homepage h1 {
+  font-size:1.75rem;
+  margin-bottom:0.5rem;
+  font-weight:600;
+}
+
+.homepage p {
+  font-size:1rem;
+  color:#6b7280;
+  margin-bottom:1.5rem;
+}
+
+.button-row {
+  display:flex;
+  gap:1rem;
+}
+
+.button {
+  padding:0.5rem 1rem;
+  font-size:0.95rem;
+  border-radius:4px;
+  text-decoration:none;
+  font-weight:500;
+  display:inline-block;
+}
+
+.button.blue {
+  background-color:#2563eb;
+  color:white;
+}
+
+.button.dark {
+  background-color:#1f2937;
+  color:white;
+}
+
+footer {
+  border-top:1px solid #e5e7eb;
+  font-size:0.9rem;
+  text-align:center;
+  color:#6b7280;
+  margin-top:auto;
 }
