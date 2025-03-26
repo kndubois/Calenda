@@ -16,9 +16,9 @@
       "event_date": "06-28-2025",
       "event_location": "Toronto",
       "event_description": "",
-      "event_host": "",
-      "event_capacity": "",
-      "event_rsvp_link": "https://example.com/rsvp"
+      "event_host": "The City of Toronto",
+      "event_capacity": "300",
+      "event_rsvp_link": ""
     },
     {
       "id": "3",

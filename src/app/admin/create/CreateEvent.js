@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { createEvent } from './actions';
 
 export default function CreateEventForm() {
@@ -13,7 +12,6 @@ export default function CreateEventForm() {
   const [eventCapacity, setEventCapacity] = useState('');
   const [eventRsvpLink, setEventRsvpLink] = useState('');
   const [errors, setErrors] = useState([]);
-  const router = useRouter();
 
   const validateInputs = () => {
     const errs = [];
@@ -49,8 +47,7 @@ export default function CreateEventForm() {
     return errs;
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleAction = async (formData) => {
 
     const validationErrors = validateInputs();
     if (validationErrors.length > 0) {
@@ -58,23 +55,11 @@ export default function CreateEventForm() {
       return;
     }
 
-    const formData = new FormData();
-    formData.set('event_name', eventName);
-    formData.set('event_date', eventDate);
-    formData.set('event_location', eventLocation);
-    formData.set('event_description', eventDescription);
-    formData.set('event_host', eventHost);
-    formData.set('event_capacity', eventCapacity);
-    formData.set('event_rsvp_link', eventRsvpLink);
-
     await createEvent(formData);
-    router.push('/admin');
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-white p-8 rounded shadow mt-5 mb-5">
-      <h2 className="text-xl font-bold mb-4">Create New Event</h2>
-
+    <>
       {errors.length > 0 && (
         <ul className="mb-4 text-red-600 list-disc list-inside bg-red-50 border border-red-200 p-4 rounded">
           {errors.map((err, i) => (
@@ -83,7 +68,7 @@ export default function CreateEventForm() {
         </ul>
       )}
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form action={handleAction} className="space-y-4">
         <div>
           <label className="block font-semibold mb-1">Event Name</label>
           <input type="text" value={eventName} onChange={e => setEventName(e.target.value)} className="border border-gray-300 rounded p-2 w-full" />
@@ -122,8 +107,8 @@ export default function CreateEventForm() {
         <div className="mt-4 flex gap-3">
           <button type="submit" className="button blue">Submit</button>
           <a href="/admin" className="button dark">Cancel</a>
-        </div>
+          </div>
       </form>
-    </div>
+    </>
   );
 }
