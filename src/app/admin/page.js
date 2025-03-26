@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { deleteEvent } from './actions';
+import DeleteButton from './edit/[id]/DeleteButton';
 
 export default async function AdminPage() {
   const res = await fetch("http://localhost:4000/events", {
@@ -22,8 +23,8 @@ export default async function AdminPage() {
             <th className="border p-2">Event Date</th>
             <th className="border p-2">Event Location</th>
             
-            <th className="border p-2">E</th>
-            <th className="border p-2">D</th>
+            <th className="border p-2">Edit Event</th>
+            <th className="border p-2">Delete Event</th>
           </tr>
         </thead>
         <tbody>
@@ -36,21 +37,14 @@ export default async function AdminPage() {
 
               <td className="border p-2 text-center">
                 <Link href={`/admin/edit/${event.id}`} className="text-blue-600">
-                  E
+                  Edit
                 </Link>
               </td>
 
               <td className="border p-2 text-center">
-                <form action={deleteEvent} onSubmit={(e) => {
-                  if (!confirm("Are you sure you want to delete this event?"))
-                    e.preventDefault();
-                  }}
-                >
-
-                  <input type="hidden" name="id" value={event.id} />
-                  <button type="submit" className="text-red-600">D</button>
-                </form>
+                <DeleteButton id={event.id} />
               </td>
+
             </tr>
           ))}
         </tbody>

@@ -124,7 +124,7 @@ export default function CreateEventForm() {
             </div>
 
             <div style={{ marginTop: '1rem' }}>
-                <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving…' : 'Submit'}</button>
+                <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving...' : 'Submit'}</button>
                 <a href="/admin" className="button dark" style={{ marginLeft: '1rem' }}>Cancel</a>
             </div>
 

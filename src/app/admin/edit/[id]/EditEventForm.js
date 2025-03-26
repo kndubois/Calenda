@@ -69,6 +69,8 @@ export default function EditEventForm({ event }) {
     router.push('/admin');
   };
 
+
+
   return (
     <div className="p-4">
         <h2 className="text-xl font-bold mb-4">Edit Event</h2>
@@ -112,7 +114,7 @@ export default function EditEventForm({ event }) {
                 />
             </div>
             <div style={{ marginTop: '1rem' }}>
-                <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving…' : 'Save Changes'}</button>
+                <button type="submit" className="button blue" disabled={isSubmitting}>{isSubmitting ? 'Saving...' : 'Save Changes'}</button>
                 <a href="/admin" className="button dark" style={{ marginLeft: '1rem' }}>Cancel</a>
             </div>
 
