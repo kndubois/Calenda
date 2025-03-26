@@ -1,4 +1,4 @@
-import EditEventForm from './EditEventForm';
+import EditEvent from './EditEvent';
 
 export default async function EditPage({ params }) {
   const { id } = params;
@@ -16,5 +16,5 @@ export default async function EditPage({ params }) {
   }
 
   const event = await res.json();
-  return <EditEventForm event={event} />;
+  return <EditEvent event={event} />;
 }

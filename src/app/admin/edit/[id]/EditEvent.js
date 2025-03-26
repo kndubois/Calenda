@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function EditEventForm({ event }) {
+export default function EditEvent({ event }) {
   const [eventName, setEventName] = useState(event.event_name);
   const [eventDate, setEventDate] = useState(event.event_date);
   const [eventLocation, setEventLocation] = useState(event.event_location);
