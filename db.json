@@ -5,17 +5,17 @@
       "event_name": "50th Annual Conference",
       "event_date": "05-15-2025",
       "event_location": "New York",
-      "event_description": "",
-      "event_host": "",
-      "event_capacity": "",
-      "event_rsvp_link": "https://example.com/rsvp"
+      "event_description": "Pick up the dress!\nRent a Limo too",
+      "event_host": "City of New York City",
+      "event_capacity": "500",
+      "event_rsvp_link": ""
     },
     {
       "id": "2",
       "event_name": "Networking Gala",
       "event_date": "06-28-2025",
       "event_location": "Toronto",
-      "event_description": "Paid $50 in advance, show on phone at the entrance",
+      "event_description": "",
       "event_host": "The City of Toronto",
       "event_capacity": "300",
       "event_rsvp_link": ""

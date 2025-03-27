@@ -20,7 +20,6 @@ function formatDate(dateString) {
   });
 }
 
-
 export default async function EventDetail({ params }) {
   const res = await fetch(`http://localhost:4000/events/${params.id}`);
 
